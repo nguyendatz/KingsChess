@@ -3,6 +3,8 @@ package kingsChess;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,31 +14,24 @@ import javax.swing.border.LineBorder;
 
 public class Home extends JPanel {
 	
-	
 	Home()
 	{
 		JFrame window = new JFrame();
 		setLayout(new GridLayout(8, 8, 2, 2));
-        
-	    for(int i = 0; i < 8; i++)
-	    {
-	    	for(int j = 0; j < 8; j++)
-	    	{
-	    		JButton btn=new JButton("btn_" + i + "_" + j);
-	    		btn.setContentAreaFilled(false);
-	    		btn.setBorder(new LineBorder(Color.WHITE));
-	    		btn.setForeground(Color.WHITE);
-	    		add(btn);
-	    	}   
-	    }
+		Cell.Init(this);
+	    
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.add(this);
 		window.pack();
 		window.setResizable(false);
-		window.setSize(1080, 720);
+		window.setSize(800, 800);
 		window.setVisible(true);
 	}
 	
+	public void cellClick(ActionEvent e)
+	{
+		
+	}
 	
 	@Override
     protected void paintComponent(Graphics g) {
