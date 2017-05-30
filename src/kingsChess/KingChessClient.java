@@ -46,7 +46,7 @@ public class KingChessClient {
                 
                 ListenThread();
                 
-                Home home  = new Home();
+                MainFrame main  = new MainFrame();
                while((send = br1.readLine())!=null){
                    bw.write(send);
                    bw.newLine();

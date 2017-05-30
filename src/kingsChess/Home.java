@@ -16,16 +16,8 @@ public class Home extends JPanel {
 	
 	Home()
 	{
-		JFrame window = new JFrame();
 		setLayout(new GridLayout(8, 8, 2, 2));
 		Cell.Init(this);
-	    
-	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.add(this);
-		window.pack();
-		window.setResizable(false);
-		window.setSize(800, 800);
-		window.setVisible(true);
 	}
 	
 	public void cellClick(ActionEvent e)
