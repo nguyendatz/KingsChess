@@ -66,6 +66,7 @@ public class KingChessClient {
     
     public static void main(String[] args) {
        KingChessClient kcc = new KingChessClient();
+       Cell.Init();
        KingChessClient.ClientStart cs = kcc.new ClientStart();
        Thread listener = new Thread (cs);
        listener.start();

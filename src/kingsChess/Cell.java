@@ -17,7 +17,7 @@ public class Cell {
 	public JButton Button;
 	public String Name;
 	
-	public static void Init(JPanel panel)
+	public static void Init()
 	{
 		List<Cell> list = new ArrayList<Cell>();
 	
@@ -42,7 +42,6 @@ public class Cell {
 	    		cell.Button.setActionCommand(cell.Id.toString());
 				
 				list.add(cell);
-				panel.add(cell.Button);
 	    	}   
 	    }
 		

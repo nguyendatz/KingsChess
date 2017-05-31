@@ -12,12 +12,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import java.util.List;
+
 public class Home extends JPanel {
 	
 	Home()
 	{
 		setLayout(new GridLayout(8, 8, 2, 2));
-		Cell.Init(this);
+		
+		List<Cell> list = User.getCurrent().ListCells;
+		for(int i = 0; i < list.size(); i++)
+		{
+			add(list.get(i).Button);
+		}
 	}
 	
 	public void cellClick(ActionEvent e)
