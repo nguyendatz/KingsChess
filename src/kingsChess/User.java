@@ -11,4 +11,8 @@ public class User {
 	{
 		return Current;
 	}
+        public static void setCurrent(User u)
+	{
+		Current= u;
+	}
 }

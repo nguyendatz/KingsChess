@@ -7,6 +7,8 @@ public class KingChessClient {
     ArrayList<User> userList = new ArrayList(); // Chứa danh sách của các client đang kết nối.
     BufferedReader br;
     BufferedWriter bw;
+    ObjectInputStream _Input;
+    ObjectOutputStream _Output;
     BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
     public void addUser(User user)
     {
@@ -21,11 +23,15 @@ public class KingChessClient {
     public class IncomingReader implements Runnable{
         @Override
         public void run(){
-            String message;
+            Object message;
             try{
-                
-                while((message = br.readLine())!=null){
-                    System.out.println(message);
+                message = _Input.readObject();
+                User.setCurrent((User)message);
+                MainFrame main  = new MainFrame();
+                //while((message = br.readLine())!=null)
+                while((message = _Input.readObject())!=null)
+                {
+                    System.out.println(message);    // nhan ket qua tu server
                 }
                 System.out.println(message);
             }catch(Exception e){
@@ -40,18 +46,20 @@ public class KingChessClient {
             String send;
             try{
                 Socket myClient = new Socket("127.0.0.1", 3200);
-                br = new BufferedReader(new InputStreamReader(myClient.getInputStream()));
-                bw = new BufferedWriter(new OutputStreamWriter(myClient.getOutputStream()));
-                
+               // br = new BufferedReader(new InputStreamReader(myClient.getInputStream()));
+               // bw = new BufferedWriter(new OutputStreamWriter(myClient.getOutputStream()));
+               System.out.println("123");
+                _Input = new ObjectInputStream(myClient.getInputStream());
+                _Output = new ObjectOutputStream(myClient.getOutputStream());
                 
                 ListenThread();
-                
-                MainFrame main  = new MainFrame();
-               while((send = br1.readLine())!=null){
-                   bw.write(send);
-                   bw.newLine();
-                   bw.flush();
-               }
+               
+//                
+//               while((send = br1.readLine())!=null){
+//                   bw.write(send);
+//                   bw.newLine();
+//                   bw.flush();
+//               }
                        
                
             }

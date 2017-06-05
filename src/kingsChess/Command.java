@@ -24,7 +24,7 @@ public class Command extends JPanel {
 		setSize(400, 800);
 		JPanel inputPanel = new JPanel();
 		JButton button = new JButton("send");
-        JTextArea textArea = new JTextArea();
+                JTextArea textArea = new JTextArea();
 		JTextField textField = new JTextField(8);
 		
         textField.setFont(textField.getFont().deriveFont(50f));

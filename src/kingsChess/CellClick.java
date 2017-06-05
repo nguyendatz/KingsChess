@@ -21,25 +21,30 @@ public class CellClick implements ActionListener {
 	    		.findFirst()
 	    		.orElse(new Cell());
 		
-		if(user.SelectCell == null)
+		if(user.SelectCell == null) // chua click lan nao
 		{
 			if(selectCell.Name == null) return;
 			
 		    user.SelectCell = selectCell;
 		}
-		else
+                
+		else    // click lan 2
 		{
 			if(selectCell.Name != null) return;
 			
-			selectCell.Image = user.SelectCell.Image;
+                        //
+                        
+			selectCell.Image = user.SelectCell.Image;// cho moi
 			selectCell.Button.setIcon(user.SelectCell.Image);
 			selectCell.Name = user.SelectCell.Name;
 			
-			user.SelectCell.Image = null;
+			user.SelectCell.Image = null;   // cho cu
 			user.SelectCell.Name = null;
 			user.SelectCell.Button.setIcon(null);
 					
 			user.SelectCell = null;
+                        
+                        //
 		}
 	}
 }

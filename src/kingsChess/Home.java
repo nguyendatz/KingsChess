@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,7 +18,12 @@ public class Home extends JPanel {
 	Home()
 	{
 		setLayout(new GridLayout(8, 8, 2, 2));
-		Cell.Init(this);
+                List<Cell> cells = User.getCurrent().ListCells;
+                for(int i = 0; i < cells.size(); i++)
+	    {
+	    		
+		add(cells.get(i).Button);
+	    }
 	}
 	
 	public void cellClick(ActionEvent e)
