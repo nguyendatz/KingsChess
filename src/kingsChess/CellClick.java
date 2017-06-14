@@ -806,29 +806,6 @@ public class CellClick implements ActionListener {
                                         }
                                    }
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     //============================END NGUA=================================
                                     
                                     
@@ -857,29 +834,7 @@ public class CellClick implements ActionListener {
                         }
                         
                         }
-                        
-                        
-                        
-                        
-                        
-                        
-//			if(selectCell.Name != null){
-//                            user.SelectCell = null;
-//                            return; // có quân cờ khác
-//                        }
-                        //
-                        
-//			selectCell.Image = user.SelectCell.Image;// cho moi
-//			selectCell.Button.setIcon(user.SelectCell.Image);
-//			selectCell.Name = user.SelectCell.Name;
-//			
-//			user.SelectCell.Image = null;   // cho cu
-//			user.SelectCell.Name = null;
-//			user.SelectCell.Button.setIcon(null);
-//					
-//			user.SelectCell = null;
-                        
-                        //
+
 		}
 	}
 }
