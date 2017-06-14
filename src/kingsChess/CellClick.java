@@ -124,10 +124,10 @@ public class CellClick implements ActionListener {
                             
                         }
                         if(user.SelectCell.Name == "ngua"){
-                            if((selectCell.x == user.SelectCell.x -2 || selectCell.x == user.SelectCell.x + 2) && 
-                                    (selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1)||
-                                    (selectCell.x == user.SelectCell.x -1 || selectCell.x == user.SelectCell.x + 1) && 
-                                    (selectCell.y == user.SelectCell.y + 2 || selectCell.y == user.SelectCell.y - 2)
+                            if(((selectCell.x == user.SelectCell.x -2 || selectCell.x == user.SelectCell.x + 2) && 
+                                    (selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1))||
+                                    ((selectCell.x == user.SelectCell.x -1 || selectCell.x == user.SelectCell.x + 1) && 
+                                    (selectCell.y == user.SelectCell.y + 2 || selectCell.y == user.SelectCell.y - 2))
                                     ){
                                 
                                if(user.SelectCell.type == selectCell.type )// nếu cùng quân thì không được ăn
@@ -772,10 +772,39 @@ public class CellClick implements ActionListener {
                                     
                                     
                                     //============================NGUA=================================
+                                   for(int i = selectCell.x-1, j = selectCell.y-2; j <= selectCell.y+2;i--, j++){
+                                       if(j== selectCell.y ){
+                                          i=selectCell.x+3;
+                                           continue;
+                                       }
+                                        final int temp = i;
+                                        final int temp2 = j;
+                                        Cell cell = user.ListCells.stream()// cell là ô ở giữa 
+                                        .filter(p -> p.x == temp && p.y == temp2)
+                                        .findFirst()
+                                        .orElse(new Cell());
+                                        if(cell.Name=="ngua" && cell.type!=user.SelectCell.type){
+                                            user.SelectCell=null;
+                                            return;
+                                        }
+                                   }
                                     
-                                    
-                                    
-                                    
+                                    for(int i = selectCell.x+1, j = selectCell.y-2; j <= selectCell.y+2;i++, j++){
+                                       if(j== selectCell.y ){
+                                          i=selectCell.x-3;
+                                           continue;
+                                       }
+                                        final int temp = i;
+                                        final int temp2 = j;
+                                        Cell cell = user.ListCells.stream()// cell là ô ở giữa 
+                                        .filter(p -> p.x == temp && p.y == temp2)
+                                        .findFirst()
+                                        .orElse(new Cell());
+                                        if(cell.Name=="ngua" && cell.type!=user.SelectCell.type){
+                                            user.SelectCell=null;
+                                            return;
+                                        }
+                                   }
                                     
                                     
                                     
