@@ -2,6 +2,7 @@ package kingsChess;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-public class Cell {
+public class Cell implements Serializable {
 	public UUID Id;
 	public ImageIcon Image;
 	public JButton Button;
