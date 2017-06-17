@@ -29,18 +29,18 @@ public class CellClick implements ActionListener {
 
 		else // click lan 2
 		{
-			selectCell.Image = user.SelectCell.Image;// cho moi
-			selectCell.Button.setIcon(user.SelectCell.Image);
-			selectCell.Name = user.SelectCell.Name;
-
-			user.SelectCell.Image = null; // cho cu
-			user.SelectCell.Name = null;
-			user.SelectCell.Button.setIcon(null);
-			user.SelectCell.type = null;
-			user.SelectCell = null;
+//			selectCell.Image = user.SelectCell.Image;// cho moi
+//			selectCell.Button.setIcon(user.SelectCell.Image);
+//			selectCell.Name = user.SelectCell.Name;
+//
+//			user.SelectCell.Image = null; // cho cu
+//			user.SelectCell.Name = null;
+//			user.SelectCell.Button.setIcon(null);
+//			user.SelectCell.type = null;
+//			user.SelectCell = null;
 			// selectCell.Name la o moi click.
 			// user luu o click truoc do
-			if (user.SelectCell.Name == "xe") {
+			if (user.SelectCell.Name.equals("xe")) {
 				if (selectCell.x == user.SelectCell.x || selectCell.y == user.SelectCell.y) {// táº¥t
 																								// cáº£
 																								// cÃ¡c
@@ -122,7 +122,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -130,7 +130,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -151,13 +151,13 @@ public class CellClick implements ActionListener {
 				return;
 
 			}
-			if (user.SelectCell.Name == "ngua") {
+			if (user.SelectCell.Name.equals("ngua")) {
 				if (((selectCell.x == user.SelectCell.x - 2 || selectCell.x == user.SelectCell.x + 2)
 						&& (selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1))
 						|| ((selectCell.x == user.SelectCell.x - 1 || selectCell.x == user.SelectCell.x + 1)
 								&& (selectCell.y == user.SelectCell.y + 2 || selectCell.y == user.SelectCell.y - 2))) {
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -165,7 +165,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -186,8 +186,8 @@ public class CellClick implements ActionListener {
 				return;
 			}
 
-			if (user.SelectCell.Name == "chot") {
-				if (user.SelectCell.type == "trang") {// náº¿u quÃ¢n Ä‘i lÃ 
+			if (user.SelectCell.Name.equals("chot")) {
+				if (user.SelectCell.type.equals("trang")) {// náº¿u quÃ¢n Ä‘i lÃ 
 														// chá»‘t tráº¯ng
 					if (user.SelectCell.x == 6
 							&& (selectCell.x == user.SelectCell.x - 1 || selectCell.x == user.SelectCell.x - 2)
@@ -226,7 +226,7 @@ public class CellClick implements ActionListener {
 					if ((selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1)
 							&& selectCell.x == user.SelectCell.x - 1) {// Äƒn
 																		// quÃ¢n
-						if (selectCell.type == "den") {
+						if (selectCell.type.equals("den")) {
 							selectCell.Image = user.SelectCell.Image;// cho moi
 							selectCell.Button.setIcon(user.SelectCell.Image);
 							selectCell.Name = user.SelectCell.Name;
@@ -256,7 +256,7 @@ public class CellClick implements ActionListener {
 					user.SelectCell = null;
 					return;
 				}
-				if (user.SelectCell.type == "den") {// náº¿u quÃ¢n Ä‘i lÃ 
+				if (user.SelectCell.type.equals("den")) {// náº¿u quÃ¢n Ä‘i lÃ 
 													// chá»‘t Ä‘en
 					if (user.SelectCell.x == 1
 							&& (selectCell.x == user.SelectCell.x + 1 || selectCell.x == user.SelectCell.x + 2)
@@ -295,7 +295,7 @@ public class CellClick implements ActionListener {
 					if ((selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1)
 							&& selectCell.x == user.SelectCell.x + 1) {// Äƒn
 																		// quÃ¢n
-						if (selectCell.type == "trang") {
+						if (selectCell.type.equals("trang")) {
 							selectCell.Image = user.SelectCell.Image;// cho moi
 							selectCell.Button.setIcon(user.SelectCell.Image);
 							selectCell.Name = user.SelectCell.Name;
@@ -327,7 +327,7 @@ public class CellClick implements ActionListener {
 				}
 			}
 
-			if (user.SelectCell.Name == "tuong") {
+			if (user.SelectCell.Name.equals("tuong")) {
 				if (selectCell.x - selectCell.y == user.SelectCell.x - user.SelectCell.y) {// kiá»ƒm
 																							// tra
 																							// Ä‘Æ°á»�ng
@@ -370,7 +370,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -378,7 +378,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -437,7 +437,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -445,7 +445,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -454,7 +454,7 @@ public class CellClick implements ActionListener {
 					selectCell.Image = user.SelectCell.Image;// cho moi
 					selectCell.Button.setIcon(user.SelectCell.Image);
 					selectCell.Name = user.SelectCell.Name;
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -470,7 +470,7 @@ public class CellClick implements ActionListener {
 				return;
 			}
 
-			if (user.SelectCell.Name == "hau") {
+			if (user.SelectCell.Name.equals("hau")) {
 				if (selectCell.x - selectCell.y == user.SelectCell.x - user.SelectCell.y) {// kiá»ƒm
 																							// tra
 																							// Ä‘Æ°á»�ng
@@ -513,7 +513,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -521,7 +521,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -580,7 +580,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -588,7 +588,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -597,7 +597,7 @@ public class CellClick implements ActionListener {
 					selectCell.Image = user.SelectCell.Image;// cho moi
 					selectCell.Button.setIcon(user.SelectCell.Image);
 					selectCell.Name = user.SelectCell.Name;
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -691,7 +691,7 @@ public class CellClick implements ActionListener {
 						}
 					}
 
-					if (user.SelectCell.type == selectCell.type)// náº¿u cÃ¹ng
+					if (user.SelectCell.type.equals(selectCell.type))// náº¿u cÃ¹ng
 																// quÃ¢n thÃ¬
 																// khÃ´ng
 																// Ä‘Æ°á»£c Äƒn
@@ -699,7 +699,7 @@ public class CellClick implements ActionListener {
 						user.SelectCell = null;
 						return;
 					}
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -719,7 +719,7 @@ public class CellClick implements ActionListener {
 				return;
 			}
 
-			if (user.SelectCell.Name == "vua") {
+			if (user.SelectCell.Name.equals("vua")) {
 				if ((selectCell.x == user.SelectCell.x
 						&& (selectCell.y == user.SelectCell.y + 1 || selectCell.y == user.SelectCell.y - 1))
 						|| (selectCell.x == user.SelectCell.x + 1 && (selectCell.y == user.SelectCell.y + 1
@@ -737,7 +737,7 @@ public class CellClick implements ActionListener {
 																													// há»£p
 																													// lá»‡
 
-					if (selectCell.type == user.SelectCell.type) { // náº¿u
+					if (user.SelectCell.type.equals(selectCell.type)) { // náº¿u
 																	// cÃ¹ng
 																	// quÃ¢n
 																	// thÃ¬
@@ -759,9 +759,9 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if ((cell.Name == "tuong"
-								|| (i == selectCell.x + 1 && (cell.Name == "chot" || cell.Name == "vua"))
-								|| cell.Name == "hau") && cell.type != user.SelectCell.type) { // náº¿u
+						if (("tuong".equals(cell.Name)
+								|| (i == selectCell.x + 1 && ("chot".equals(cell.Name) || "vua".equals(cell.Name)))
+								|| "hau".equals(cell.Name)) && user.SelectCell.type.equals(cell.type)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -776,7 +776,7 @@ public class CellClick implements ActionListener {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "tuong" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("tuong".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -800,9 +800,9 @@ public class CellClick implements ActionListener {
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
 
-						if ((cell.Name == "tuong"
-								|| (i == selectCell.x - 1 && (cell.Name == "chot" || cell.Name == "vua"))
-								|| cell.Name == "hau") && cell.type != user.SelectCell.type) { // náº¿u
+						if (("tuong".equals(cell.Name)
+								|| (i == selectCell.x - 1 && ("chot".equals(cell.Name) || "vua".equals(cell.Name)))
+								|| "hau".equals(cell.Name)) && user.SelectCell.type.equals(cell.type)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -817,7 +817,7 @@ public class CellClick implements ActionListener {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "tuong" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("tuong".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false){ // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -846,9 +846,9 @@ public class CellClick implements ActionListener {
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
 
-						if ((cell.Name == "tuong"
-								|| (i == selectCell.x - 1 && (cell.Name == "chot" || cell.Name == "vua"))
-								|| cell.Name == "hau") && cell.type != user.SelectCell.type) { // náº¿u
+						if (("tuong".equals(cell.Name)
+								|| (i == selectCell.x - 1 && ("chot".equals(cell.Name) || "vua".equals(cell.Name)))
+								|| "hau".equals(cell.Name)) && user.SelectCell.type.equals(cell.type)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -863,7 +863,7 @@ public class CellClick implements ActionListener {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "tuong" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("tuong".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -892,9 +892,9 @@ public class CellClick implements ActionListener {
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
 
-						if ((cell.Name == "tuong"
-								|| (i == selectCell.x + 1 && (cell.Name == "chot" || cell.Name == "vua"))
-								|| cell.Name == "hau") && cell.type != user.SelectCell.type) { // náº¿u
+						if (("tuong".equals(cell.Name)
+								|| (i == selectCell.x + 1 && ("chot".equals(cell.Name) || "vua".equals(cell.Name)))
+								|| "hau".equals(cell.Name)) && user.SelectCell.type.equals(cell.type)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -909,7 +909,7 @@ public class CellClick implements ActionListener {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "tuong" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("tuong".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false) { // náº¿u
 																								// gáº·p
 																								// váº­t
 																								// cáº£n
@@ -939,12 +939,12 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if ((cell.Name == "xe" || cell.Name == "hau" || (j == selectCell.y + 1 && cell.Name == "vua"))
-								&& cell.type != user.SelectCell.type) {
+						if (("xe".equals(cell.Name) || "hau".equals(cell.Name) || (j == selectCell.y + 1 && "vua".equals(cell.Name)))
+								&& user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "xe" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("xe".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false) { // náº¿u
 																							// gáº·p
 																							// váº­t
 																							// cáº£n
@@ -969,12 +969,12 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if ((cell.Name == "xe" || cell.Name == "hau" || (j == selectCell.y - 1 && cell.Name == "vua"))
-								&& cell.type != user.SelectCell.type) {
+						if (("xe".equals(cell.Name) || "hau".equals(cell.Name) || (j == selectCell.y - 1 && "vua".equals(cell.Name)))
+								&& user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "xe" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("xe".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false) { // náº¿u
 																							// gáº·p
 																							// váº­t
 																							// cáº£n
@@ -1000,12 +1000,12 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if ((cell.Name == "xe" || cell.Name == "hau" || (i == selectCell.x - 1 && cell.Name == "vua"))
-								&& cell.type != user.SelectCell.type) {
+						if (("xe".equals(cell.Name) || "hau".equals(cell.Name) || (i == selectCell.x - 1 && "vua".equals(cell.Name)))
+								&& user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "xe" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("xe".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false){ // náº¿u
 																							// gáº·p
 																							// váº­t
 																							// cáº£n
@@ -1031,12 +1031,12 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if ((cell.Name == "xe" || cell.Name == "hau" || (i == selectCell.x + 1 && cell.Name == "vua"))
-								&& cell.type != user.SelectCell.type) {
+						if (("xe".equals(cell.Name) || "hau".equals(cell.Name) || (i == selectCell.x + 1 && "vua".equals(cell.Name)))
+								&& user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
-						if (cell.Name != "xe" && cell.Name != null && cell.Name != "hau") { // náº¿u
+						if ("xe".equals(cell.Name)==false && cell.Name != null && "hau".equals(cell.Name)==false){ // náº¿u
 																							// gáº·p
 																							// váº­t
 																							// cáº£n
@@ -1068,7 +1068,7 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if (cell.Name == "ngua" && cell.type != user.SelectCell.type) {
+						if ("ngua".equals(cell.Name) && user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
@@ -1084,7 +1084,7 @@ public class CellClick implements ActionListener {
 						Cell cell = user.ListCells.stream()// cell lÃ  Ã´ á»Ÿ
 															// giá»¯a
 								.filter(p -> p.x == temp && p.y == temp2).findFirst().orElse(new Cell());
-						if (cell.Name == "ngua" && cell.type != user.SelectCell.type) {
+						if ("ngua".equals(cell.Name) && user.SelectCell.type.equals(cell.type)==false) {
 							user.SelectCell = null;
 							return;
 						}
@@ -1093,7 +1093,7 @@ public class CellClick implements ActionListener {
 					// ============================END
 					// NGUA=================================
 
-					if (user.SelectCell.type == "trang") {
+					if (user.SelectCell.type.equals("trang")) {
 						selectCell.type = "trang";
 					} else {
 						selectCell.type = "den";
@@ -1108,7 +1108,7 @@ public class CellClick implements ActionListener {
 					user.SelectCell.Button.setIcon(null);
 					user.SelectCell.type = null;
 					user.SelectCell = null;
-					return;
+				//	return;
 
 					// }===========================================================
 
