@@ -13,34 +13,34 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class MainFrame extends javax.swing.JFrame{
-    public MainFrame(){
+public class MainFrame extends javax.swing.JFrame {
+	public MainFrame() {
 
-    	JSplitPane splitPane = new JSplitPane();
-        Home topPanel = new Home();
-        Command bottomPanel = new Command();
+		JSplitPane splitPane = new JSplitPane();
+		Home topPanel = new Home();
+		Command bottomPanel = new Command();
 
-        setPreferredSize(new Dimension(1200, 800));
-        getContentPane().setLayout(new GridLayout());
-        getContentPane().add(splitPane);
+		setPreferredSize(new Dimension(1200, 800));
+		getContentPane().setLayout(new GridLayout());
+		getContentPane().add(splitPane);
 
-        splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-        splitPane.setDividerLocation(800);
-        splitPane.setLeftComponent(topPanel);
-        splitPane.setRightComponent(bottomPanel);
+		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		splitPane.setDividerLocation(800);
+		splitPane.setLeftComponent(topPanel);
+		splitPane.setRightComponent(bottomPanel);
 
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
 		pack();
-    }
+	}
 
-    public static void main(String args[]){
-        EventQueue.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                new MainFrame().setVisible(true);
-            }
-        });
-    }
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new MainFrame().setVisible(true);
+			}
+		});
+	}
 }

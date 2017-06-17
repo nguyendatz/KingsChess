@@ -15,5 +15,6 @@ public class User implements Serializable {
         public static void setCurrent(User u)
 	{
 		Current= u;
+		Cell.reBind();
 	}
 }
