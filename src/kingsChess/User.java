@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class User implements Serializable {
+	private static final long serialVersionUID = -5628315121095656067L;
 	public String Name;
 	public Cell SelectCell;
 	public List<Cell> ListCells;

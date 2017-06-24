@@ -3,29 +3,24 @@ package kingsChess;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class MainFrame extends javax.swing.JFrame {
+	private static final long serialVersionUID = 7147201131448536876L;
+
 	public MainFrame() {
 
 		JSplitPane splitPane = new JSplitPane();
 		Home topPanel = new Home();
 		Command bottomPanel = new Command();
 
-		setPreferredSize(new Dimension(1200, 800));
+		setPreferredSize(new Dimension(1000, 600));
 		getContentPane().setLayout(new GridLayout());
 		getContentPane().add(splitPane);
 
 		splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		splitPane.setDividerLocation(800);
+		splitPane.setDividerLocation(600);
 		splitPane.setLeftComponent(topPanel);
 		splitPane.setRightComponent(bottomPanel);
 

@@ -39,6 +39,28 @@ public class Cell implements Serializable {
 
 		User.getCurrent().ListCells = list;
 	}
+	
+	public static void applyChange(CellChange change)
+	{
+		User user = User.getCurrent();
+		Cell old = user.ListCells.stream().filter(p -> p.Id.toString().equals(change.OldCell)).findFirst()
+				.orElse(new Cell());
+		Cell newz = user.ListCells.stream().filter(p -> p.Id.toString().equals(change.NewCell)).findFirst()
+				.orElse(new Cell());
+		
+		newz.Image = old.Image;// cho moi
+		newz.Button.setIcon(old.Image);
+		newz.Name = old.Name;
+		if (old.type.equals("trang")) {
+			newz.type = "trang";
+		} else {
+			newz.type = "den";
+		}
+		old.Image = null; // cho cu
+		old.Name = null;
+		old.Button.setIcon(null);
+		old.type = null;
+	}
 
 	public static void reBind() {
 		List<Cell> list = User.getCurrent().ListCells;

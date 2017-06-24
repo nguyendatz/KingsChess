@@ -1,11 +1,8 @@
 package kingsChess;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Stream;
+import java.io.IOException;
 
 import javax.swing.JButton;
 
@@ -29,28 +26,19 @@ public class CellClick implements ActionListener {
 
 		else // click lan 2
 		{
-                        CheckGo check = new CheckGo();
-                        boolean go = check.canGo(user, selectCell);
-                        if(go == true){
-                                        selectCell.Image = user.SelectCell.Image;// cho moi
-					selectCell.Button.setIcon(user.SelectCell.Image);
-					selectCell.Name = user.SelectCell.Name;
-                                        if (user.SelectCell.type.equals("trang")) {
-						selectCell.type = "trang";
-					} else {
-						selectCell.type = "den";
-					}
-					user.SelectCell.Image = null; // cho cu
-					user.SelectCell.Name = null;
-					user.SelectCell.Button.setIcon(null);
-					user.SelectCell.type = null;
-					user.SelectCell = null;
-					
-                        }
-                        else{
-                            System.out.println("Can't go");
-                        }
-			
+			CheckGo check = new CheckGo();
+			boolean go = check.canGo(user, selectCell);
+			if (go == true) {
+				CellChange change = new CellChange();
+				change.OldCell = user.SelectCell.Id.toString();
+				change.NewCell = selectCell.Id.toString();				
+				DataTransfer data = new DataTransfer(change);
+				data.sendToServer();
+				user.SelectCell = null;
+			} else {
+				System.out.println("Can't go");
+			}
+
 		}
 	}
 }

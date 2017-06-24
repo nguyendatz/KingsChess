@@ -7,8 +7,8 @@ import java.util.*;
 public class KingChessClient {
 	ArrayList<User> userList = new ArrayList(); // Chứa danh sách của các
 												// client đang kết nối.
-	ObjectInputStream _Input;
-	ObjectOutputStream _Output;
+	static ObjectInputStream _Input;
+	static ObjectOutputStream _Output;
 
 	public void addUser(User user) {
 		userList.add(user);
@@ -24,17 +24,22 @@ public class KingChessClient {
 		public void run() {
 			Object message;
 			try {
-				message = _Input.readObject();
-				User.setCurrent((User) message);
-				MainFrame main = new MainFrame();
-
 				while ((message = _Input.readObject()) != null) {
-					System.out.println(message); // nhan ket qua tu server
+					((DataTransfer)message).handleAction(); // nhan ket qua tu server
 				}
-				System.out.println(message);
 			} catch (Exception e) {
 				System.out.println("somehow got an error");
 			}
+		}
+	}
+	
+	public static void sayToServer(DataTransfer data)
+	{
+		try {
+			_Output.writeObject(data);
+			_Output.flush();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 	}
 
@@ -63,5 +68,5 @@ public class KingChessClient {
 		Thread listener = new Thread(cs);
 		listener.start();
 	}
-
+	
 }

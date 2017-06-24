@@ -3,16 +3,18 @@ package kingsChess;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+
+import kingsChess.KingChessClient.IncomingReader;
 import kingsChess.KingChessServer.ServerStart;
 
 public class KingChessServer {
 
-	ArrayList<ObjectOutputStream> clientTalking = new ArrayList(); // danh sach
+	static ArrayList<ObjectOutputStream> clientTalking = new ArrayList(); // danh sach
 																	// client
 																	// dang noi
 																	// chuyen
 
-	public void sayToPlayers(Object message) {
+	public static void sayToPlayers(DataTransfer message) {
 		try {
 			for (ObjectOutputStream bw : clientTalking) {
 				bw.writeObject(message);
@@ -43,9 +45,11 @@ public class KingChessServer {
 		public void run() {
 			Object message;
 			try {
-				sayToPlayers("Hello client");
+				DataTransfer data = new DataTransfer("Hello client");
+				data.sendToClient();
+				
 				while ((message = br.readObject()) != null) {
-					sayToPlayers(message);
+					((DataTransfer)message).handleAction(true);
 				}
 
 			} catch (Exception e) {
@@ -68,11 +72,12 @@ public class KingChessServer {
 					Socket myClient = new Socket();
 					myClient = myServer.accept(); // waiting for clients
 					ObjectOutputStream _Output = new ObjectOutputStream(myClient.getOutputStream());
-
-					_Output.writeObject(User.getCurrent());
+					
+					DataTransfer data = new DataTransfer(User.getCurrent());
+					_Output.writeObject(data);
 					clientTalking.add(_Output); // luu giu luong dang nc voi
 												// client nao
-					Thread listener = new Thread(new ClientHandler(myClient, _Output));
+					Thread listener = new Thread(new ClientHandler(myClient, _Output));										
 					listener.start();
 
 					System.out.println("Got connection");
