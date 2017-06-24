@@ -22,12 +22,13 @@ public class Command extends JPanel implements ActionListener {
 		JButton button = new JButton("send");
 		button.addActionListener(this);
 
-		textField.setFont(textField.getFont().deriveFont(50f));
+		textField.setFont(textField.getFont().deriveFont(50f));     
 		add(textField);
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane);
 		scrollPane.setViewportView(textArea);
 		add(inputPanel);
+                textArea.setEditable(false);
 		inputPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
 		inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));
 		inputPanel.add(textField); // left will be the textField

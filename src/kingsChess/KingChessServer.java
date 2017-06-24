@@ -10,17 +10,21 @@ import kingsChess.KingChessServer.ServerStart;
 public class KingChessServer {
 
 	static ArrayList<ObjectOutputStream> clientTalking = new ArrayList(); // danh sach
-																	// client
-																	// dang noi
-																	// chuyen
-
+        public static ArrayList<User> userList = new ArrayList(); // Chứa danh sách của các client đang kết nối.
+        boolean clientGoling = false;
+        public void addUser(User user) {
+		userList.add(user);
+	}
 	public static void sayToPlayers(DataTransfer message) {
 		try {
-			for (ObjectOutputStream bw : clientTalking) {
+                    
+			for (ObjectOutputStream bw : clientTalking) {// gui den tat ca client trong server
 				bw.writeObject(message);
 				bw.flush();
-
 			}
+                     //   DataTransfer data = new DataTransfer(true);
+                        
+                        
 		} catch (Exception e) {
 			System.out.println("Cant send message to clients");
 		}
@@ -45,20 +49,22 @@ public class KingChessServer {
 		public void run() {
 			Object message;
 			try {
-				DataTransfer data = new DataTransfer("Hello client");
-				data.sendToClient();
-				
-				while ((message = br.readObject()) != null) {
+
+				while ((message = br.readObject()) != null) {   // nhan du lieu tu client
 					((DataTransfer)message).handleAction(true);
 				}
 
 			} catch (Exception e) {
-				System.out.println("Lost a connection");
+                                System.out.println("Lost a connection");
+                                clientTalking.remove(this.bw);
+                                DataTransfer data = new DataTransfer("Other client disconnected, this game will be closed");
+                                data.sendToClient();
+				
 
 			}
 		}
 	}
-
+        
 	public class ServerStart implements Runnable {
 		@Override
 		public void run() {
@@ -72,11 +78,27 @@ public class KingChessServer {
 					Socket myClient = new Socket();
 					myClient = myServer.accept(); // waiting for clients
 					ObjectOutputStream _Output = new ObjectOutputStream(myClient.getOutputStream());
-					
-					DataTransfer data = new DataTransfer(User.getCurrent());
-					_Output.writeObject(data);
-					clientTalking.add(_Output); // luu giu luong dang nc voi
-												// client nao
+
+					clientTalking.add(_Output); // luu giu luong dang nc voi client nao
+                                        
+                                        if (clientTalking.size() == 1){ 
+                                            DataTransfer data = new DataTransfer(User.getCurrent());
+                                            _Output.writeObject(data);  // gui ban co
+                                            DataTransfer helloClient = new DataTransfer("Hello client Your name is Client1! \n Please wait for other player");
+                                            helloClient.sendToClient();
+                                        }
+                                        
+                                        if (clientTalking.size() == 2){
+                                            
+                                            DataTransfer data = new DataTransfer(User.getCurrent());
+                                            _Output.writeObject(data);  // gui ban co
+                                            DataTransfer startTheGame = new DataTransfer("Client2 has connected, the game will be started \n========================\n");
+                                            clientTalking.get(0).writeObject(startTheGame);
+                                            clientTalking.get(0).flush();
+                                            DataTransfer startTheGame1 = new DataTransfer("Hello client! Your name is client2! \n The game will be started \n========================\n");
+                                            clientTalking.get(1).writeObject(startTheGame1);
+                                            clientTalking.get(1).flush();
+                                        }
 					Thread listener = new Thread(new ClientHandler(myClient, _Output));										
 					listener.start();
 
